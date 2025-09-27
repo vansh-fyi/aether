@@ -90,7 +90,7 @@ const FALLBACK_RESPONSE: GeminiResponse = {
 /**
  * Aether's API key from environment variables
  */
-const AETHER_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const AETHER_API_KEY = import.meta.env.aether_works;
 
 /**
  * Get the API key to use for requests
