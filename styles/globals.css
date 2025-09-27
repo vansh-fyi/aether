@@ -1,0 +1,109 @@
+/* 1. Import Tailwind's base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Define the application's theme using CSS variables */
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --card: #ffffff;
+    --card-foreground: #09090b;
+    --primary: #2563eb;
+    /* Blue for primary actions */
+    --primary-foreground: #ffffff;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --radius: 0.75rem;
+
+    /* Enhanced color variables */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #db2777 0%, #9333ea 100%);
+    --gradient-disabled: #e4e4e7;
+    --gradient-card: linear-gradient(145deg, #ffffff 0%, #fdfdfd 100%);
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 6px 25px rgba(0, 0, 0, 0.07);
+  }
+}
+
+/* 3. Apply base styles */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #ffffff;
+    /* Clean background color */
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Safety net for horizontal scroll */
+  }
+}
+
+/* 4. Enhanced Component Styling */
+@layer components {
+
+  /* Enhanced Button Styling */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200;
+    @apply px-4 py-2 h-9;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .btn:disabled {
+    background: var(--gradient-disabled);
+    color: var(--muted-foreground);
+    cursor: not-allowed;
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  .btn-primary {
+    @apply btn;
+    background: var(--foreground);
+    color: var(--primary-foreground);
+  }
+
+  .btn-vision {
+    @apply btn;
+    background: var(--gradient-primary);
+    color: var(--primary-foreground);
+  }
+
+  .btn-chaos {
+    @apply btn;
+    background: var(--gradient-secondary);
+    color: white;
+  }
+
+  /* Enhanced Card Styling */
+  .card-enhanced {
+    @apply rounded-xl border p-6;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card-enhanced:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  /* Final Chaos Box Styling */
+  .chaos-box {
+    @apply rounded-2xl p-6 text-center relative overflow-hidden flex-grow flex flex-col justify-center;
+    background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 100%);
+    border: 1px dashed #d8b4fe;
+    box-shadow: var(--shadow-soft);
+  }
+}
