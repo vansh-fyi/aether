@@ -2,7 +2,7 @@ import { calculateFontSizeObject } from "../store/useDesignSystemStore";
 
 export interface GeminiRequest {
   apiKey: string;
-  imageData: string[]; // CHANGED: Now an array of strings
+  imageData: string[];
   prompt: string;
 }
 
@@ -136,8 +136,8 @@ export async function generateDesignSystem(
   const isVisionRequest =
     !!request.imageData && request.imageData.length > 0;
   const model = isVisionRequest
-    ? "gemini-2.0-flash"
-    : "gemini-2.0-flash";
+    ? "gemini-2.5-flash-preview-09-2025"
+    : "gemini-flash-latest";
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${effectiveApiKey}`;
 
   try {
